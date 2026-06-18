@@ -104,7 +104,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
             style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2C2C54),
+              color: const Color(0xFF3F51B5),
             ),
           ),
           SizedBox(height: 6.h),
@@ -236,7 +236,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(icon, size: 16.sp, color: Colors.grey[600]),
+        Icon(icon, size: 16.sp, color: const Color(0xFF3F51B5)),
         SizedBox(width: 8.w),
         Expanded(
           child: RichText(
@@ -273,10 +273,6 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
           ],
         ),
         backgroundColor: const Color(0xFF2C2C2C),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.r),
-        ),
         duration: const Duration(seconds: 2),
       ),
     );
