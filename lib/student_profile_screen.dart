@@ -48,7 +48,140 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
   }
 
   Widget _buildProfileCard() {
-    return Container();
+    return Container(
+      width: 320.w,
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 28.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(150),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          )
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              CircleAvatar(
+                radius: 42.r,
+                backgroundColor: const Color(0xFFD6D9F5),
+                child: Icon(
+                  Icons.person,
+                  size: 48.sp,
+                  color: const Color(0xFF3F51B5),
+                ),
+              ),
+              Positioned(
+                top: -6.h,
+                right: -10.w,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
+                  decoration: BoxDecoration(
+                    color: Colors.redAccent,
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  child: Text(
+                    "New",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          Text(
+            _studentName,
+            style: TextStyle(
+              fontSize: 20.sp,
+              fontWeight: FontWeight.bold,
+              color: const Color(0xFF2C2C54),
+            ),
+          ),
+          SizedBox(
+            height: 6.h,
+          ),
+          Text(
+            "ID:$_studentId",
+            style: TextStyle(
+              fontSize: 13.sp,
+              color: Colors.grey.shade600,
+            ),
+          ),
+          SizedBox(
+            height: 4.h,
+          ),
+          Text(
+            _department,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 13.sp,
+              color: Colors.grey.shade500,
+            ),
+          ),
+          SizedBox(
+            height: 24.h,
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 44.h,
+            child: ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(
+                Icons.info_outline,
+                size: 18.sp,
+              ),
+              label: Text(
+                "View Details",
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF3F51B5),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 12.h,
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 44.h,
+            child: OutlinedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.check_circle_outline,
+                  size: 18.sp, color: Colors.green.shade700),
+              label: Text(
+                "Marrk Present",
+                style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.green.shade700),
+              ),
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(color: Colors.green.shade700),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 
   @override
