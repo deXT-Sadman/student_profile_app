@@ -136,7 +136,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
             width: double.infinity,
             height: 44.h,
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: _showStudentDetailsDialog,
               icon: Icon(
                 Icons.info_outline,
                 size: 18.sp,
@@ -181,6 +181,99 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
           )
         ],
       ),
+    );
+  }
+
+  void _showStudentDetailsDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14.r),
+            ),
+            child: Padding(
+              padding: EdgeInsetsGeometry.all(20.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.school,
+                          color: const Color(0xFF3F51B5), size: 22.sp),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Text(
+                        "Student Details",
+                        style: TextStyle(
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xFF2C2C54),
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                      _detailRow(Icons.person, "Name", _studentName),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      _detailRow(Icons.badge, "ID", _studentId),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      _detailRow(Icons.apartment, "Dept", _department),
+                      SizedBox(
+                        height: 18.h,
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: Text(
+                            "Close",
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600,
+                              color: const Color(0xFF3F51B5),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  Widget _detailRow(IconData icon, String label, String value) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, size: 16.sp, color: Colors.grey.shade600),
+        SizedBox(
+          width: 8.w,
+        ),
+        Expanded(
+          child: RichText(
+            text: TextSpan(
+              style: TextStyle(
+                fontSize: 13.5.sp,
+                color: const Color(0xFF2C2C54),
+              ),
+              children: [
+                TextSpan(
+                  text: '$label: ',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
